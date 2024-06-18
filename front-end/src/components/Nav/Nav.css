@@ -1,0 +1,14 @@
+.navMainList {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  list-style-type: none;
+  background-color: aquamarine;
+  margin: 0px;
+  padding: 20px;
+}
+.navList {
+  text-decoration: none;
+  color: #0d0d0d;
+  padding: 10px;
+}
