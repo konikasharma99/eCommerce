@@ -1,16 +1,17 @@
 import "./Nav.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Nav = () => {
+  const Auth = localStorage.getItem("user");
+  const navigate = useNavigate();
+  const logOut = () => {
+    localStorage.clear();
+    navigate("/signup");
+  };
   return (
     <div>
       <ul className={"navMainList"}>
-        <li>
-          <Link className="navList" to={"/signup"}>
-            Sign-up
-          </Link>
-        </li>
         <li>
           <Link className="navList" to={"/"}>
             Products
@@ -27,14 +28,20 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link className="navList" to={"/logout"}>
-            Logout
-          </Link>
-        </li>
-        <li>
           <Link className="navList" to={"/profile"}>
             Profile
           </Link>
+        </li>
+        <li>
+          {Auth ? (
+            <Link onClick={logOut} className="navList" to={"/signup"}>
+              Logout
+            </Link>
+          ) : (
+            <Link className="navList" to={"/signup"}>
+              Sign-up
+            </Link>
+          )}
         </li>
       </ul>
     </div>
