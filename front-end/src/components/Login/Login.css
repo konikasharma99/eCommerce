@@ -1,0 +1,31 @@
+.loginMain {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.h2 {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.inputBox {
+  margin: 8px;
+  border-radius: 6px;
+  padding: 8px;
+  border: 1px solid #0d0d0d;
+}
+.loginBtn {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background-color: brown;
+  border: 0px;
+  margin-top: 8px;
+  border-radius: 6px;
+  color: azure;
+}

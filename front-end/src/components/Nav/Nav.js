@@ -38,9 +38,18 @@ const Nav = () => {
               Logout
             </Link>
           ) : (
-            <Link className="navList" to={"/signup"}>
-              Sign-up
-            </Link>
+            <>
+              <li>
+                <Link className="navList" to={"/signup"}>
+                  Sign-up
+                </Link>
+              </li>
+              <li>
+                <Link className="navList" to={"/login"}>
+                  Login
+                </Link>
+              </li>
+            </>
           )}
         </li>
       </ul>
