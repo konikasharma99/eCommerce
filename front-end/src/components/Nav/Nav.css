@@ -1,9 +1,13 @@
+.navMain {
+  display: flex;
+  background-color: aquamarine;
+  flex-direction: row;
+}
 .navMainList {
   display: flex;
   flex-direction: row;
   gap: 20px;
   list-style-type: none;
-  background-color: aquamarine;
   margin: 0px;
   padding: 20px;
 }
@@ -11,4 +15,26 @@
   text-decoration: none;
   color: #0d0d0d;
   padding: 10px;
+}
+.nav-right {
+  list-style-type: none;
+  margin-left: auto;
+  flex-direction: row;
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding: 20px;
+  gap: 20px;
+}
+.imgLogo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  flex-direction: row;
+  margin-top: 6px;
+  margin-left: 18px;
 }

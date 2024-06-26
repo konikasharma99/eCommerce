@@ -5,6 +5,9 @@ import Footer from "./components/Footer/Footer";
 import SignUp from "./components/SignUp/SignUp";
 import PrivateComp from "./components/privateComp";
 import Login from "./components/Login/Login";
+import AddProducts from "./components/AddProducts/AddProducts";
+import AllProducts from "./components/AllProducts/AllProducts";
+import UpdateProducts from "./components/UpdateProducts/UpdateProducts";
 
 function App() {
   return (
@@ -13,12 +16,9 @@ function App() {
         <Nav />
         <Routes>
           <Route element={<PrivateComp />}>
-            <Route path="/" element={<h1>Products List</h1>} />
-            <Route path="/addProduct" element={<h1>addProduct Component</h1>} />
-            <Route
-              path="/updateProduct"
-              element={<h1>updateProduct Component</h1>}
-            />
+            <Route path="/" element={<AllProducts />} />
+            <Route path="/addProduct" element={<AddProducts />} />
+            <Route path="/updateProduct/:id" element={<UpdateProducts />} />
             <Route path="/logout" element={<h1>logout Component</h1>} />
             <Route path="/profile" element={<h1>profile Component</h1>} />
           </Route>

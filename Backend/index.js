@@ -3,6 +3,7 @@ require("./database/config");
 const cors = require("cors");
 const user = require("./database/Schemas/User");
 const User = require("./database/Schemas/User");
+const Product = require("./database/Schemas/Product");
 
 const app = express();
 app.use(express.json());
@@ -30,8 +31,32 @@ app.post("/login", async (req, resp) => {
   }
 });
 
-app.get("/", async (req, resp) => {
-  const result = await user.find();
+app.post("/add-product", async (req, resp) => {
+  let product = new Product(req.body);
+  let result = await product.save();
+  resp.send(result);
+});
+app.get("/products", async (req, resp) => {
+  let result = await Product.find();
+  if (result.length > 0) {
+    resp.send(result);
+  } else {
+    resp.send({ result: "No products found" });
+  }
+});
+app.delete("/products/:id", async (req, resp) => {
+  let result = await Product.deleteOne({ _id: req.params.id });
+  resp.send(result);
+});
+app.get("/products/:id", async (req, resp) => {
+  let result = await Product.findOne({ _id: req.params.id });
+  resp.send(result);
+});
+app.put("/products/:id", async (req, resp) => {
+  let result = await Product.updateOne(
+    { _id: req.params.id },
+    { $set: req.body }
+  );
   resp.send(result);
 });
 
