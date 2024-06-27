@@ -18,3 +18,11 @@
   margin-bottom: 120px;
   margin: 0px;
 }
+.searchBar {
+  margin: 8px;
+  padding: 8px;
+  margin-left: 40px;
+  border: 1px solid #bebebe;
+  border-radius: 8px;
+  width: 30%;
+}
