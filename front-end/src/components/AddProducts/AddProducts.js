@@ -23,6 +23,7 @@ const AddProducts = () => {
       }),
       headers: {
         "Content-Type": "application/json",
+        authorization: JSON.parse(localStorage.getItem("token")),
       },
     });
     result = await result.json();

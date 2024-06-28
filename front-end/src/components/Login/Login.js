@@ -24,8 +24,9 @@ const Login = () => {
       },
     });
     result = await result.json();
-    if (result.name && result.email) {
-      localStorage.setItem("user", JSON.stringify(result));
+    if (result.authToken) {
+      localStorage.setItem("user", JSON.stringify(result.userEntered));
+      localStorage.setItem("token", JSON.stringify(result.authToken));
       navigate("/");
     } else {
       alert("Wrong credentials entered");

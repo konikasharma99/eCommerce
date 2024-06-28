@@ -7,14 +7,22 @@ const AllProducts = () => {
     getProducts();
   }, []);
   const getProducts = async () => {
-    let result = await fetch("http://localhost:5000/products");
+    let result = await fetch("http://localhost:5000/products", {
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+      },
+    });
     result = await result.json();
     setProducts(result);
   };
   const onSearch = async (e) => {
     let key = e.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:5000/search/${key}`);
+      let result = await fetch(`http://localhost:5000/search/${key}`, {
+        headers: {
+          authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      });
       result = await result.json();
       if (result) {
         setProducts(result);
@@ -26,6 +34,9 @@ const AllProducts = () => {
   const deleteProd = async (id) => {
     let result = await fetch(`http://localhost:5000/products/${id}`, {
       method: "Delete",
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+      },
     });
     result = await result.json();
     if (result) {
@@ -34,7 +45,6 @@ const AllProducts = () => {
     }
     console.log("()", result);
   };
-  console.log("&&", products);
   return (
     <div className="dislayMain">
       <h1>All products</h1>
